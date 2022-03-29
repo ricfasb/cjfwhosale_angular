@@ -1,0 +1,71 @@
+<app-nav-topo></app-nav-topo>
+
+<div class="container">
+
+  <div class="card mb-3">
+    <div class="card-header text-light bg-primary">
+      Item
+    </div>
+    <div class="card-body">
+      <form class="row g-3" [formGroup]="orderItemForm" (ngSubmit)="addItem()">
+        <div class="col-5">
+          <label class="form-label">Product</label>
+          <input class="form-control" list="datalistOptions" formControlName="product" placeholder="Product search...">
+          <datalist id="datalistOptions">
+            <option value="Product 1">
+            <option value="Product 2">
+            <option value="Product 3">
+            <option value="Product 4">
+            <option value="Product 5">
+          </datalist>
+        </div>
+
+        <div class="col-2">
+          <label class="form-label">Quantity</label>
+          <input type="number" formControlName="quantity" class="form-control" name="quantity" placeholder="Quantity">
+        </div>
+
+        <div class="col-2">
+          <label class="form-label">Value</label>
+          <input type="text" readonly disable formControlName="value" class="form-control" name="value" placeholder="Value">
+        </div>
+
+        <div class="col">
+          <label class="form-label">&nbsp;</label><br/>
+          <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <table class="table table-sm table-primary table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Value</th>
+            <th scope="col">Total</th>
+            <th scope="col" class="text-center">Remove</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="items.length > 0; else listEmpty">
+          <tr *ngFor="let item of items" scope="row">
+            <td>{{ item.product }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.value }}</td>
+            <td>{{ item.total }}</td>
+            <td class="text-center" style="color: red; cursor: pointer"><i class="fa fa-trash"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<ng-template #listEmpty>
+  <tr class="text-center">
+    <td colspan="5">No items added...</td>
+  </tr>
+</ng-template>

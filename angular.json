@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "carpetsandmore": {
+    "cjfwhosale": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/carpetsandmore",
+            "outputPath": "dist/cjfwhosale",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -31,7 +31,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/font-awesome/css/font-awesome.min.css"
             ],
             "scripts": []
           },
@@ -69,18 +71,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "carpetsandmore:build"
+            "browserTarget": "cjfwhosale:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "carpetsandmore:build:production"
+              "browserTarget": "cjfwhosale:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "carpetsandmore:build"
+            "browserTarget": "cjfwhosale:build"
           }
         },
         "test": {
@@ -117,15 +119,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "carpetsandmore:serve"
+            "devServerTarget": "cjfwhosale:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "carpetsandmore:serve:production"
+              "devServerTarget": "cjfwhosale:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "carpetsandmore"
+  "defaultProject": "cjfwhosale"
 }
